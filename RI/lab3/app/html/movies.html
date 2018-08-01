@@ -1,0 +1,37 @@
+<div style="margin-left: 1em">
+    <div class="jumbotron">
+            <h1 class="display-4">Recomendo Filmes!</h1>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label for="exampleFormControlSelect1">Selecione um usuário</label>
+                    <select ng-options="usuario as usuario for usuario in movieCtrl.users" ng-model="movieCtrl.usuarioSelecionado" 
+                            class="form-control" id="selecionar-usuarios" 
+                            data-ng-change="movieCtrl.onUserChange(movieCtrl.usuarioSelecionado)">
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div>
+            <h3>Filmes Recomendados para o Usuário {{ movieCtrl.usuarioSelecionado }}</h3>
+            <ul>
+                <li data-ng-repeat="movie in movieCtrl.movies">
+                    {{ movie }}
+                </li>
+            </ul>
+        </div>
+        <div class="row" data-ng-if="movieCtrl.moviesData.length > 0">
+            <div data-ng-repeat="movie in movieCtrl.moviesData">
+                <div class="col-md-4">
+                    <div class="row">
+                        {{ movie.Title }}
+                    </div>
+                    <div class="row" data-ng-if="movie.Poster !== undefined">
+                        <img ng-src="{{movie.Poster}}">
+                    </div>
+                </div>
+            </div>
+        </div>
+</div>
+
