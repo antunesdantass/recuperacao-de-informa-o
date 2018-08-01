@@ -21,6 +21,15 @@
                 </li>
             </ul>
         </div>
+        <div>
+            Você recebeu estes filmes por que nos baseamos em usuários parecidos.
+            Os usuários que possuem gosto por filmes parecidos com o seu são:
+            <ul>
+                <li data-ng-repeat="user in movieCtrl.vizinhos">
+                    {{ user }}
+                </li>
+            </ul>
+        </div>
         <div class="row" data-ng-if="movieCtrl.moviesData.length > 0">
             <div data-ng-repeat="movie in movieCtrl.moviesData">
                 <div class="col-md-4">

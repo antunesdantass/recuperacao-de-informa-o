@@ -1,7 +1,7 @@
 (() => {
     angular.module('rec-info-app', ['ui.router']).service('MovieService', ['$http', function($http) {
         const self = this;
-        const uri = 'http://127.0.0.1:5000/rec/';
+        const uri = 'https://rec-info-server.herokuapp.com/rec/';
         const OMDB_URI = 'http://www.omdbapi.com/?apikey=a9fca016&';
 
         /**
@@ -12,7 +12,7 @@
         };
 
         self.getUsers = function() {
-            return $http.get('http://127.0.0.1:5000/users').then((data) => {
+            return $http.get('https://rec-info-server.herokuapp.com/users').then((data) => {
                 return data;
             });
         };

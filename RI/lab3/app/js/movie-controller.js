@@ -5,12 +5,14 @@
         self.usuarioSelecionado;
         self.movies = []
         self.moviesData = [];
+        self.vizinhos = []
      
         self.onUserChange = (user) => {
             self.movies.length = 0
             self.moviesData.length = 0;
             MovieService.getRecommendation(user).then(data => {
                 self.movies = data.data.movies;
+                self.vizinhos = data.data.neighbours;
                 for (movie of self.movies) {
                     
                     movie = movie.split(" ");
